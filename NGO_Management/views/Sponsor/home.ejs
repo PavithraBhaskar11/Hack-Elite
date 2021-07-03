@@ -1,0 +1,165 @@
+<%- include('../partials/sponsor/header') %>
+<div class="contentPage" >
+
+    <% if(message !== null && messageType !== null && messageType === "Success"){ %>
+    <div class="alert alert-success" role="alert">
+        <%=message%>
+    </div>
+    <%  } else if(message !== null && messageType!== null && messageType === "Fail" ){ %>
+    <div class="alert alert-danger" role="alert">
+        <%=message%>
+    </div>
+    <%}%>
+
+    <h2 style="font-weight: bold">NGO LIST</h2>
+    <div class="row">
+        <% if(rows.length!==0){
+            var i = 1;
+        rows.forEach(function(data){
+        %>
+
+            <div class="col-4 mb-3">
+
+                <div class="card" data-bs-toggle="modal" data-bs-target="#staticBackdrop" >
+                    <div class="card-header font-weight-bold" style="color: #045762;background-color:#f1f6f9;">
+                        <i class="far fa-handshake" style="color: #045762"></i>
+                        <%= data.ngo_name%>
+                    </div>
+                    <div class="card-body">
+                        <blockquote class="blockquote mb-0">
+                            <p style="font-size: medium;font-family: Verdana">We are registered under<%= data.classification%> and we help in <%= data.category%>.</p>
+
+                        </blockquote>
+                        <br>
+                        <i class="fas fa-map-marker-alt" style="color: #045762">  <%= data.city%></i>
+                        <button type="button" name="button" id="viewButton" class="btn" data-bs-toggle="modal" data-bd-id="<%=i%>" data-bs-target="#NGO<%= data.sl_no%>">View</button>
+                    </div>
+                    <div class="modal fade" id="NGO<%= data.sl_no%>"  data-bs-keyboard="false" data-bs-backdrop="static"   data-bs-whatever="@mdo" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                        <div class="modal-dialog modal-xl modal-dialog-centered modal-dialog-scrollable">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLabel"><%= data.ngo_name%></h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                    <div class="Container">
+                                        <form action="/S-home" method="post">
+                                            <div class="form-group">
+
+                                                <div class="form-group row ">
+                                                    <label for="ngoId" class="col-sm-4 col-form-label font-weight-bold">NGO Id</label>
+                                                    <div class="col-sm-8">
+                                                        <input type="text" name="ngoId" class="form-control" id="ngoId" readonly value="<%= data.ngo_id%>">
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-group row ">
+                                                    <label for="ngoName" class="col-sm-4 col-form-label font-weight-bold">NGO Name</label>
+                                                    <div class="col-sm-8">
+                                                        <input type="text" name="ngoName" class="form-control" id="ngoName" readonly value="<%= data.ngo_name%>">
+                                                    </div>
+                                                </div>
+
+
+                                                <div class="form-group row ">
+                                                    <label for="category" class="col-sm-4 col-form-label font-weight-bold">Category</label>
+                                                    <div class="col-sm-8">
+                                                        <input type="text" name="category" class="form-control" id="category" readonly value="<%= data.category%>">
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-group row ">
+                                                    <label for="classification" class="col-sm-4 col-form-label font-weight-bold">Classification</label>
+                                                    <div class="col-sm-8">
+                                                        <input type="text" class="form-control" name="classification" id="classification" readonly value="<%= data.classification%>">
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-group row ">
+                                                    <label for="contact" class="col-sm-4 col-form-label font-weight-bold">Contact</label>
+                                                    <div class="col-sm-8">
+                                                        <input type="tel" name="contact" class="form-control" id="contact" readonly value="<%= data.contact%>">
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-group row ">
+                                                    <label for="ngoLink" class="col-sm-4 col-form-label font-weight-bold">Ngo Link</label>
+                                                    <div class="col-sm-8">
+                                                        <input type="text" name="ngoLink" class="form-control" id="ngoLink" readonly value="<%= data.ngo_link%>">
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-group row ">
+                                                    <label for="ngoDescription" class="col-sm-4 col-form-label font-weight-bold">Description</label>
+                                                    <div class="col-sm-8">
+                                                        <textarea type="text" class="form-control" name="ngoDescription" id="ngoDescription" readonly ><%= data.description%></textarea>
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-group row ">
+                                                    <label for="area" class="col-sm-4 col-form-label font-weight-bold">Area</label>
+                                                    <div class="col-sm-8">
+                                                        <input type="text" class="form-control" name="area" id="area" readonly value="<%= data.area%>">
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-group row ">
+                                                    <label for="city" class="col-sm-4 col-form-label font-weight-bold">City</label>
+                                                    <div class="col-sm-8">
+                                                        <input type="text" class="form-control" name="city" id="city" readonly value="<%= data.city%>">
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-group row ">
+                                                    <label for="state" class="col-sm-4 col-form-label font-weight-bold">State</label>
+                                                    <div class="col-sm-8">
+                                                        <input type="text" class="form-control" name="state" id="state" readonly value="<%= data.state%>">
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-group row mb-3">
+                                                    <label for="description" class="col-sm-4 col-form-label font-weight-bold">Sponsoring Details</label>
+                                                    <div class="col-sm-8">
+                                                        <textarea type="text" class="form-control" name="description" required id="description"></textarea>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                                <button type="submit" class="btn btn-primary">Apply</button>
+                                            </div>
+                                        </form>
+
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+        <% i++; }) %>
+        <% }else{ %>
+            <h2 style="font-weight:bolder;font-size:4rem;text-align:center;">No Data Found</h2>
+        <% } %>
+
+    </div>
+
+</div>
+<!--<div class="footer" >-->
+<!--    <div class="" style="padding:1rem;">-->
+<!--        <a href="#">About</a>-->
+<!--        <a href="#">Terms &#x26 Conditions</a>-->
+<!--        <a href="#">Contact</a>-->
+<!--        <a href="#">Help desk</a><br>-->
+<!--        <i class="fab fa-facebook"></i>-->
+<!--        <i class="fab fa-twitter"></i>-->
+<!--        <i class="fab fa-linkedin"></i>-->
+<!--    </div>-->
+<!--</div>-->
+<%- include('../partials/footerUser') %>

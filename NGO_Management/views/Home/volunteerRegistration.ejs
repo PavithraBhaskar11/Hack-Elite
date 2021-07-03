@@ -1,0 +1,83 @@
+<%- include('../partials/header') %>
+
+<div class="content">
+
+<div class="form-layout1">
+    <div class="inner-form">
+        <h1>REGISTER</h1>
+        <div class="container">
+
+            <form action="/vol_Register" method="post">
+                <div class="form-group">
+
+                    <div class="row row-cols-2 justify-content-between">
+
+                        <div class="form-group row">
+                            <label for="uid">User ID</label>
+                            <input type="email" name="uid" placeholder="Enter email" required class="form-control" id="uid">
+                        </div>
+                        <div class="form-group row">
+                            <label for="username">Name</label>
+                            <input type="text" name="username" class="form-control" required id="username">
+                        </div>
+                        <div class="form-group row">
+                            <label for="address">Address</label>
+                            <input type="text" name="address" class="form-control" required id="address">
+                        </div>
+                        <div class="form-group row">
+                            <label for="phoneNumber">Phone number</label>
+                            <input type="tel" class="form-control" maxlength="10" minlength="10" name="phoneNumber" required id="phoneNumber">
+                        </div>
+                        <div class="form-group row">
+                            <label for="email">Email address</label>
+                            <input type="email" name="email" class="form-control" id="email" required aria-describedby="emailHelp">
+                        </div>
+                        <div class="form-group row">
+                            <label for="password">Password</label>
+                            <input type="password" minlength="6" name="password" class="form-control" id="password">
+                        </div>
+                        <div class="form-group row">
+                            <label for="confirmPassword">Confirm Password</label>
+                            <input type="password" minlength="6" name="confirmPassword" class="form-control" id="confirmPassword">
+                            <div class="invalid-feedback">
+                                Your password doesn't match!!
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="type">Type</label>
+                            <input type="text" name="type" id="type" value="Volunteer" readonly class="form-control">
+                        </div>
+                        <div class="form-group row">
+                            <label for="preferredCity">Preferred City</label>
+                            <select class="form-select" name="preferredCity" id="preferredCity" aria-label="Default select example">
+                                <option selected>Open this select menu</option>
+                                <option value="Bangalore">Bangalore</option>
+                                <option value="Mumbai">Mumbai</option>
+                                <option value="Chennai">Chennai</option>
+                                <option value="Chandigarh">Chandigarh</option>
+                            </select>
+                        </div>
+                        <div class="form-group row">
+                        <label for="availableTime" class="form-label">Available Time</label>
+                        <input class="form-control" list="datalistOptions" name="availableTime" id="availableTime">
+                        <datalist id="datalistOptions">
+                            <option value="Full-time">
+                            <option value="Day(9AM-5PM)">
+                            <option value="Evening(5PM-8PM)">
+                        </datalist>
+                        </div>
+                    </div>
+                </div>
+                <span style="color: red;font-weight: bold"><%=err%></span>
+
+                <button style="margin-left:44rem" type="submit" class="btn btn-primary">Register</button>
+
+            </form>
+
+        </div>
+    </div>
+</div>
+
+</div>
+
+<%- include('../partials/footer')%>

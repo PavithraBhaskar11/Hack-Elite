@@ -1,0 +1,42 @@
+<%- include('../partials/header') %>
+
+<div class="bg h-100" style="background-image:url('images/login.jpg');
+background-size: 100%;
+background-position : center;
+/*margin-top:0rem;*/
+background-attachment : fixed;
+color: white " >
+    <div class="container">
+        <div class="row">
+            <div class="col-7">
+            </div>
+            <div class="col-5">
+                <form class="login" style="margin-top: 5rem" action="/login" method="post">
+                    <h3>LOGIN</h3>
+                    <hr>
+                    <div class="form-group">
+                        <label for="uid">User ID</label>
+                        <input type="email" class="form-control" name="uid" id="uid"  required aria-describedby="emailHelp"/>
+                    </div>
+                    <div class="form-group">
+                        <label for="password">Password</label>
+                        <input type="password" name="password" class="form-control" required id="password">
+                    </div>
+                    <span style="font-weight: bold; color: red"><%= err%></span>
+                    <div class="row mt-4" style="">
+                        <div class="col" style="margin-left: 1rem">
+                            <a class="btn btn-primary" href="/register">SIGN UP</a>
+                        </div>
+                        <div class="col" style="margin-left: 3rem">
+                            <button type="submit" class="btn btn-primary">LOGIN</button>
+                        </div>
+                    </div>
+                </form>
+
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+
+<%- include('../partials/footer') %>

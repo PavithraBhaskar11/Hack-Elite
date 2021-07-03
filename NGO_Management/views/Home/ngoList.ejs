@@ -1,0 +1,152 @@
+<%- include('../partials/header') %>
+
+<div class="container" style="margin-top: 0rem;">
+    <h2 class="heading" style="margin-top: 3rem;">List of NGO's</h2>
+    <div class="row">
+        <% if(rows.length!==0){
+            var i = 1;
+        rows.forEach((data)=>{
+        %>
+
+            <div class="col-4 mb-3">
+
+                <div style="height: 15rem" class="card">
+                    <div class="card-header font-weight-bold" style="color: #045762;background-color:#f1f6f9;">
+
+                        <i class="far fa-handshake" style="color: #045762"></i>
+                        <%= data.ngo_name%>
+
+                    </div>
+                    <div  class="card-body">
+                        <blockquote style="height: 5rem" class="blockquote mb-0">
+                            <p style="font-family: Calibri">We are registered under<%= data.classification%> and we help in <%=data.category%>
+
+                            </p>
+                        </blockquote>
+                        <br>
+                        <div>
+                            <i class="fas fa-map-marker-alt" style="color: #045762">  <%= data.city%></i>
+                            <button type="button" name="button" id="viewButton" class="btn" data-bs-toggle="modal" data-bs-id="<%= i%>" data-bs-target="#NGO<%= data.sl_no%>">View</button>
+                        </div>
+
+                    </div>
+                    <div class="modal fade" id="NGO<%= data.sl_no%>"   data-bs-backdrop="static"  tabindex="-1" aria-labelledby="staticBackdropLabel" >
+                        <div class="modal-dialog modal-fullscreen-xl-down modal-dialog-centered" >
+                            <div class="modal-content" style="width: 50rem" >
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLabel"><%= data.ngo_name%></h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                    <div class="Container" style="width: 40rem">
+                                        <form action="/ngoList" method="post">
+                                            <div class="form-group">
+
+                                                <div class="form-group row ">
+                                                    <label for="ngoId" class="col-sm-4 col-form-label font-weight-bold">NGO Id</label>
+                                                    <div class="col-sm-8">
+                                                        <input type="text" name="ngoId" class="form-control" id="ngoId" readonly value="<%= data.ngo_id%>">
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-group row ">
+                                                    <label for="ngoName" class="col-sm-4 col-form-label font-weight-bold">NGO Name</label>
+                                                    <div class="col-sm-8">
+                                                        <input type="text" name="ngoName" class="form-control" id="ngoName" readonly value="<%= data.ngo_name%>">
+                                                    </div>
+                                                </div>
+
+
+                                                <div class="form-group row ">
+                                                    <label for="category" class="col-sm-4 col-form-label font-weight-bold">Category</label>
+                                                    <div class="col-sm-8">
+
+
+
+                                                        <input type="text" name="category" class="form-control" id="category" readonly value="<%=data.category%>"/>
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-group row ">
+                                                    <label for="classification" class="col-sm-4 col-form-label font-weight-bold">Classification</label>
+                                                    <div class="col-sm-8">
+                                                        <input type="text" class="form-control" name="classification" id="classification" readonly value="<%= data.classification%>">
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-group row ">
+                                                    <label for="contact" class="col-sm-4 col-form-label font-weight-bold">Contact</label>
+                                                    <div class="col-sm-8">
+                                                        <input type="tel" name="contact" class="form-control" id="contact" readonly value="<%= data.contact%>">
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-group row ">
+                                                    <label for="description" class="col-sm-4 col-form-label font-weight-bold">Description</label>
+                                                    <div class="col-sm-8">
+                                                        <textarea type="text" class="form-control" name="description" id="description" readonly ><%= data.description%></textarea>
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-group row ">
+                                                    <label for="area" class="col-sm-4 col-form-label font-weight-bold">Area</label>
+                                                    <div class="col-sm-8">
+                                                        <input type="text" class="form-control" name="area" id="area" readonly value="<%= data.area%>">
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-group row ">
+                                                    <label for="city" class="col-sm-4 col-form-label font-weight-bold">City</label>
+                                                    <div class="col-sm-8">
+                                                        <input type="text" class="form-control" name="city" id="city" readonly value="<%= data.city%>">
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-group row ">
+                                                    <label for="state" class="col-sm-4 col-form-label font-weight-bold">State</label>
+                                                    <div class="col-sm-8">
+                                                        <input type="text" class="form-control" name="state" id="state" readonly value="<%= data.state%>">
+                                                    </div>
+                                                </div>
+
+                                            </div>
+
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                                <button type="submit" class="btn btn-primary">Apply</button>
+                                            </div>
+                                        </form>
+
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+
+
+
+        <% i++; }) %>
+        <% }else{ %>
+            <h2 style="font-weight:bolder;font-size:4rem;text-align:center;">No Data Found</h2>
+        <% } %>
+
+    </div>
+</div>
+
+<div class="footer" style="width: 100%; height: 10rem;">
+    <div class="" style="padding: 1rem">
+        <a href="#">About</a>
+        <a href="#">Terms &#x26 Conditions</a>
+        <a href="#">Contact</a>
+        <a href="#">Help desk</a><br>
+        <i class="fab fa-facebook"></i>
+        <i class="fab fa-twitter"></i>
+        <i class="fab fa-linkedin"></i>
+    </div>
+</div>
+<%- include('../partials/footer') %>

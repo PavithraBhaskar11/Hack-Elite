@@ -1,0 +1,82 @@
+<%- include('../partials/ngo/header') %>
+
+
+<div class="list mt-5 pt-3 pl-5 pr-5">
+    <table class="table table-striped table mt-5" style="background-color:#f1f6f9;">
+        <thead class="thead-dark">
+        <tr>
+            <th scope="col">No.Of Volunteers </th>
+            <th scope="col">Name</th>
+            <th scope="col">Email</th>
+            <th scope="col">Contact</th>
+            <th scope="col">Address</th>
+            <th scope="col">Available Time</th>
+            <th scope="col">Get in Touch</th>
+        </tr>
+
+        </thead>
+        <tbody>
+        <%
+        if(rows.length !== 0){
+            var i = 1;
+        rows.forEach(data=>{
+        %>
+            <tr>
+                <th scope="row"><%= i; %></th>
+                <td><%= data.name %></td>
+                <td><%= data.email %></td>
+                <td><%= data.phone_no %></td>
+                <td><%= data.address %></td>
+                <td><%= data.available_time %></td>
+                <td><a  type="submit" class="btn" data-bs-toggle="modal" data-bs-target="#Volunteer<%= i%>" name="button" style="color:white; border-radius:0.4rem;background-color:#22313f;outline:none;border:none;">Notify</a></td>
+            </tr>
+            <div class="modal fade" id="Volunteer<%= i%>" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="staticBackdropLabel">Notify</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="Container">
+                                <form action="/N-volunteer" method="post">
+                                    <div class="form-group">
+                                        <div class="form-group row ">
+                                            <label for="volunteerId" class="col-sm-4 col-form-label font-weight-bold">Volunteer Id</label>
+                                            <div class="col-sm-8">
+                                                <input type="text" name="volunteerId" class="form-control" id="volunteerId" readonly value="<%= data.u_id %>">
+                                            </div>
+                                        </div>
+                                        <div class="form-group row ">
+                                            <label for="message" class="col-sm-4 col-form-label font-weight-bold">Message</label>
+                                            <div class="col-sm-8">
+                                                <textarea  name="ngoMessage" class="form-control" id="message"></textarea>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn " data-dismiss="modal">Close</button>
+                                        <button type="submit" class="btn btn-success">Submit</button>
+                                    </div>
+                                </form>
+
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        <% i++; })
+        } else{ %>
+            <tr>
+                <td colspan="7" style="text-align: center; font-weight: bold" >No Data Found</td>
+            </tr>
+        <% } %>
+        <!-- Modal  -->
+
+        </tbody>
+    </table>
+</div>
+
+<%- include('../partials/footer') %>

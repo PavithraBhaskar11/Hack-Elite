@@ -1,0 +1,106 @@
+<%- include('../partials/admin/header')%>
+
+<div class="contentPage">
+
+    <div class="table">
+        <table class="table table-bordered">
+            <thead class="thead-dark">
+            <!--            <th scope="col">Sl.no</th>-->
+            <th scope="col">Ngo Id</th>
+            <th scope="col">Name</th>
+            <th scope="col">Classification</th>
+            <th scope="col">Category</th>
+            <th scope="col">City</th>
+            <th scope="col">Contact</th>
+            <th scope="col">Ngo-Link</th>
+            <th scope="col">Status</th>
+            </thead>
+            <tbody>
+            <%
+            if(rows.length !== 0){
+                var i = 1;
+            rows.forEach(data=>{
+            %>
+
+                <tr >
+                    <!--                    <th scope="row"><%= i; %></th>-->
+                    <td><%= data.ngo_id %></td>
+                    <td><%= data.ngo_name %></td>
+                    <td><%= data.classification %></td>
+                    <td><%= data.category %></td>
+                    <td><%= data.city %></td>
+                    <td><%= data.contact %></td>
+                    <!--                    <td ><%= data.description %></td>-->
+                    <td><%= data.ngo_link %></td>
+                    <td  data-toggle="modal" data-id="<%= i %>" data-target="#NGO<%= data.sl_no%>"><%= data.status%></td>
+                </tr>
+
+                <!-- Modal -->
+                <div class="modal fade" id="NGO<%= data.sl_no%>" data-backdrop="static" data-keyboard="false" tabindex="-1"
+                     aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-xl modal-dialog-centered modal-dialog-scrollable">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="staticBackdropLabel">Ngo Details</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <div class="Container">
+                                    <form action="/admin-ngoList" method="post">
+                                        <div class="form-group">
+
+                                            <div class="form-group row ">
+                                                <label for="ngoId" class="col-sm-4 col-form-label font-weight-bold">NGO Id</label>
+                                                <div class="col-sm-8">
+                                                    <input type="text" name="ngoId" class="form-control" id="ngoId" readonly value="<%= data.ngo_id %>">
+                                                </div>
+                                            </div>
+                                            <div class="form-group row ">
+                                                <label for="ngoDescription" class="col-sm-4 col-form-label font-weight-bold">NGO Description</label>
+                                                <div class="col-sm-8">
+                                                    <textarea name="ngoDescription" class="form-control" id="ngoDescription" readonly ><%= data.description %></textarea>
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group row ">
+                                                <label for="status" class="col-sm-4 col-form-label font-weight-bold">Status</label>
+                                                <div class="col-sm-8">
+                                                    <select class="form-select" name="status" id="status" aria-label="Default select example">
+                                                        <option  selected>Pending</option>
+                                                        <option  value="Accepted">Accepted</option>
+                                                        <option  value="Rejected">Rejected</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                            <button type="submit" class="btn btn-success">Submit</button>
+                                        </div>
+                                    </form>
+
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+                </div>
+            <% i++; })
+            } else{ %>
+                <tr>
+                    <td colspan="10" style="text-align: center; font-weight: bold" >No Data Found</td>
+                </tr>
+            <% } %>
+
+            </tbody>
+        </table>
+    </div>
+
+
+</div>
+
+<%- include('../partials/footerUser')%>

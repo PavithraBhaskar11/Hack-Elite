@@ -1,0 +1,155 @@
+<%- include('../partials/header') %>
+<div class="content">
+    <div class="form-layout1">
+
+        <div class="inner-form">
+            <h1>REGISTER</h1>
+            <div class="container">
+
+                <form action="/ngoRegistration" method="post">
+                    <div class="form-group">
+                        <div class="row row-cols-2 justify-content-between">
+
+                            <div class="form-group row">
+                                <label for="ngoName">Name</label>
+                                <input type="text" name="ngoName" class="form-control" required id="ngoName">
+                            </div>
+                            <div class="form-group row">
+                                <label for="classification">Classification</label>
+                                <select class="form-select" name="classification" id="classification" aria-label="Default select example">
+                                    <option  selected>Open this select menu</option>
+                                    <option  value="Charitable Trust">Charitable Trust</option>
+                                    <option  value="Society">Society</option>
+                                    <option  value="FCRA">FCRA</option>
+                                </select>
+                            </div>
+                            <!--                                <label for="category">Category</label>-->
+                            <!--                                <select class="form-select"  name="category" id="category" aria-label="Default select example">-->
+                            <!--                                    <option  selected>Open this select menu</option>-->
+                            <!--                                    <option value="Education and Children">Education and Children</option>-->
+                            <!--                                    <option value="Health and Nutrition">Health and Nutrition</option>-->
+                            <!--                                    <option  value="Differently Able and Education ">Differently Abled and Education</option>-->
+                            <!--                                    <option  value="Children">Children</option>-->
+                            <!--                                    <option  value="Women Empowerment">Women Empowerment</option>-->
+                            <!--                                    <option  value="Animal Welfare">Animal Welfare</option>-->
+                            <!--                                    <option  value="Sculptures, Painting and floriculture">Sculptures, Painting and floriculture</option>-->
+                            <!--                                    <option  value="Art and culture">Art and culture</option>-->
+                            <!--                                    <option  value="Aged or Elderly">Aged or Elderly</option>-->
+                            <!--                                    <option  value="Disaster Relief and Children">Disaster Relief and Children</option>-->
+                            <!--                                    <option  value="Labour and Employment">Labour and Employment</option>-->
+                            <!--                                    <option  value="Health and Family Welfare">Health and Family Welfare</option>-->
+                            <!--                                </select>-->
+
+
+                            <div class="form-group row">
+                                <label for="contact">Contact</label>
+                                <input type="tel" class="form-control" minlength="10" maxlength="10" name="contact" required id="contact">
+                            </div>
+                            <div class="form-group row">
+                                <label for="description">Description</label>
+                                <textarea type="text" name="description" class="form-control" id="description" required ></textarea>
+                            </div>
+                            <div class="form-group row">
+                                <label for="ngoLink">Ngo Link</label>
+                                <input type="text" name="ngoLink" class="form-control" id="ngoLink" required >
+                            </div>
+                            <div class="form-group row">
+                                <label for="password">Password</label>
+                                <input type="password"  minlength="6" name="password" class="form-control" required id="password">
+                            </div>
+                            <div class="form-group row">
+                                <label for="confirmPassword">Confirm Password</label>
+                                <input type="password" minlength="6" name="confirmPassword" class="form-control" required id="confirmPassword">
+                            </div>
+                            <div class="form-group row">
+                                <label for="type">Type</label>
+                                <input type="text" name="type" id="type" value="NGO" readonly class="form-control">
+                            </div>
+                        </div>
+                        <hr>
+                        <h3 style="margin-bottom: 1.5rem">Category</h3>
+                        <div class="form-group row">
+                            <div class="btn-group" role="group" aria-label="Basic checkbox toggle button group">
+                                <div class="row row-cols-2 justify-content-between">
+                                    <div class="form-check">
+                                        <input type="checkbox" name="category" class="form-check-input" id="education" autocomplete="off" value="Education">
+                                        <label class="form-check-label" for="education">Education</label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input type="checkbox" name="category" class="form-check-input" id="health" autocomplete="off" value="Health">
+                                        <label class="form-check-label" for="health">Health</label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input type="checkbox" name="category" class="form-check-input" id="children" autocomplete="off" value="Children">
+                                        <label class="form-check-label" for="children">Children</label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input type="checkbox" name="category" class="form-check-input" id="nutrition" autocomplete="off" value="Nutrition">
+                                        <label class="form-check-label" for="nutrition">Nutrition</label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input type="checkbox" name="category" class="form-check-input" id="differentlyAbled" autocomplete="off" value="Differently abled">
+                                        <label class="form-check-label" for="differentlyAbled">Differently Abled</label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input type="checkbox" name="category" class="form-check-input" id="womenEmpowerment" autocomplete="off" value="Women Empowerment">
+                                        <label class="form-check-label" for="womenEmpowerment">Women Empowerment</label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input type="checkbox" name="category" class="form-check-input" id="animalWelfare" autocomplete="off" value="Animal Welfare">
+                                        <label class="form-check-label" for="animalWelfare">Animal Welfare</label>
+                                    </div>
+
+                                    <div class="form-check">
+                                        <input type="checkbox" name="category" class="form-check-input" id="artAndCraft" autocomplete="off" value="Art and Crafts">
+                                        <label class="form-check-label" for="artAndCraft">Art and Crafts</label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input type="checkbox" name="category" class="form-check-input" id="disasterRelief" autocomplete="off" value="Disaster Relief">
+                                        <label class="form-check-label" for="disasterRelief">Disaster Relief</label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input type="checkbox" name="category" class="form-check-input" id="cultural" autocomplete="off" value="Cultural">
+                                        <label class="form-check-label" for="cultural">Cultural</label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input type="checkbox" name="category" class="form-check-input" id="familyWelfare" autocomplete="off" value="Family welfare">
+                                        <label class="form-check-label" for="familyWelfare">Family Welfare</label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" name="category" type="checkbox" value="Labour and Employment" id="labourAndEmployment" >
+                                        <label class="form-check-label" for="labourAndEmployment">Labour and Employment</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <hr>
+                        <h3>Address</h3>
+                        <div class="form-group row">
+                            <label for="area">Area</label>
+                            <input type="text" name="area" id="area" required  class="form-control">
+                        </div>
+                        <div class="row row-cols-2 justify-content-between">
+                            <div class="form-group row">
+                                <label for="city">City</label>
+                                <input type="text" name="city" id="city" required class="form-control">
+                            </div>
+                            <div class="form-group row">
+                                <label for="state">State</label>
+                                <input type="text" name="state" id="state" required class="form-control">
+                            </div>
+                        </div>
+                        <span style="color: red; font-weight: bold"><%= err%></span>
+
+                    </div>
+                    <button style="margin-left:44rem;background-color: #045762" type="submit"  class="btn btn-primary">Register</button>
+
+                </form>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<%- include('../partials/footer')%>
