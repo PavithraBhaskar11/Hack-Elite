@@ -1,0 +1,167 @@
+*{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+body{
+	background-color: yellow;
+	background-size: cover;
+	font-family: sans-serif;
+}
+
+.login-wrapper{
+	height: 100vh;
+	width: 100vw;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.form{
+	position:relative;
+	width: 100%;
+	max-width: 400px;
+	padding: 80px 40px 40px;
+	background: rgba(0,0,0,0.7);
+	border-radius: 10px;
+	color: #fff;
+	box-shadow: 0 12px 25px rgba(0,0,0,0.5);
+}
+.form img{
+	position: absolute;
+	top: -64px;
+	left: 32%;
+	width: 140px;
+	border-radius: 50%;
+}
+.form h2{
+	text-align: center;
+	letter-spacing: 2px;	/*space b/w letters of KATALYST*/
+	padding-bottom: 40px;
+	padding-top: 10px;
+}
+.form .input-grp{
+	position: relative;
+}
+.form .input-grp input{
+	width: 100%;			/*input box*/
+	padding: 5px 0;
+	font-size: 1rem;
+	letter-spacing: 1px;
+	margin-bottom: 30px;
+	border: none;
+	border-bottom: 1px solid #fff;
+	outline: none;
+	background-color: transparent;
+	color: inherit;
+}
+.form .input-group label{
+	position: absolute;
+	top: 0;
+	left: 0;
+	padding: 10px 0;
+	font-size: 1rem;
+}
+
+.submit-btn{
+	display: block;
+	border: none;
+	outline: none;
+	background-color: green;
+	font-size: 1rem;
+	color: #fff;
+	text-transform: uppercase;
+	letter-spacing: 1px;
+	padding: 10px 20px;
+	border-radius: 5px;
+	cursor: pointer;
+}
+
+.submit-btn:hover {
+	border-color: #f1ff5c;
+	color: white;
+	box-shadow: 0 0.5em 0.5em -0.4em red;
+	transform: translate(0.25em, -0.25em);
+}
+*{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+body{
+	background-color: yellow;
+	background-size: cover;
+	font-family: sans-serif;
+}
+
+.login-wrapper{
+	height: 100vh;
+	width: 100vw;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.form{
+	position:relative;
+	width: 100%;
+	max-width: 400px;
+	padding: 80px 40px 40px;
+	background: rgba(0,0,0,0.7);
+	border-radius: 10px;
+	color: #fff;
+	box-shadow: 0 12px 25px rgba(0,0,0,0.5);
+}
+.form img{
+	position: absolute;
+	top: -64px;
+	left: 32%;
+	width: 140px;
+	border-radius: 50%;
+}
+.form h2{
+	text-align: center;
+	letter-spacing: 2px;	/*space b/w letters of KATALYST*/
+	padding-bottom: 40px;
+}
+.form .input-grp{
+	position: relative;
+}
+.form .input-grp input{
+	width: 100%;			/*input box*/
+	padding: 5px 0;
+	font-size: 1rem;
+	letter-spacing: 1px;
+	margin-bottom: 30px;
+	border: none;
+	border-bottom: 1px solid #fff;
+	outline: none;
+	background-color: transparent;
+	color: inherit;
+}
+.form .input-group label{
+	position: absolute;
+	top: 0;
+	left: 0;
+	padding: 10px 0;
+	font-size: 1rem;
+}
+
+.submit-btn{
+	display: block;
+	border: none;
+	outline: none;
+	background-color: green;
+	font-size: 1rem;
+	color: #fff;
+	text-transform: uppercase;
+	letter-spacing: 1px;
+	padding: 10px 20px;
+	border-radius: 5px;
+	cursor: pointer;
+}
+
+.submit-btn:hover{
+	    border-color: #f1ff5c;
+    color: white;
+    box-shadow: 0 0.5em 0.5em -0.4em red;
+    transform:translate(0.25em,-0.25em);
+}

@@ -1,94 +1,67 @@
-<%- include('../partials/header')%>
+<%- include('../partials/header') %>
 <div class="content">
-<div class="main-content-wrapper">
+    <div class="main-content-wrapper">
 
-  <div class="main1">
-    <div class="carousel" data-flickity='{ "wrapAround": true ,"cellSelector": ".carousel-cell" , "autoPlay" : true, "cellAlign": "left", "contain": true }'>
-      <div class="carousel-cell">
-        <img class="d-block w-100" style="height:28rem" src="images/slider/ngo8.jpg" alt="1234">
-      </div>
-      <div class="carousel-cell">
-        <img class="d-block w-100" src="images/slider/ngo7.jpg" style="height:28rem" alt="">
-      </div>
-      <div class="carousel-cell">
-        <img class="d-block w-100" style="height:28rem" src="images/slider/ngo6.jpg" alt="">
-      </div>
-      <div class="carousel-cell">
-        <img class="d-block w-100" style="height:28rem" src="images/slider/ngo9.jpg" alt="">
-      </div>
-      <div class="carousel-cell">
-        <img class="d-block w-100" style="height:28rem" src="images/slider/ngo5.jpg" alt="">
-      </div>
-      <div class="carousel-cell">
-        <img class="d-block w-100" style="height:28rem" src="images/slider/vol1.jpg" alt="">
-      </div>
-    </div>
-  </div>
-
-  <div class="main2" >
-    <div class="Container">
-      <div class="ngo_list">
-        <div class="ngo_list_header m-5">
-          <div class="row">
-            <div class="col-8">
-              <h2>NGO's</h2>
-            </div>
-            <div class="col-4">
-              <a style="margin-left:75%; text-decoration:none; font-weight: bold;color: #22313f " href="/ngoList">see more</a>
-            </div>
-          </div>
-
-        </div>
-        <div class="ngoCards">
-          <div class="carousel m-3" data-flickity='{ "groupCells": true }'>
-            <% if(rows.length!==0){
-              var i = 1;
-              rows.forEach(function (data){
-                %>
-
-            <div class="carousel-cell" style="width:28%">
-              <div class="card" >
-                <div class="card-header font-weight-bold" style="color: #045762;background-color:#f1f6f9;">
-                    <i class="far fa-handshake" style="color: #045762">  </i>
-                     <%= data.ngo_name%>
-                  </div>
-                <div class="card-body">
-                  <blockquote class="blockquote mb-0">
-                    <p>We are registered under<%= data.classification%> and we help in <%= data.category%>.</p>
-                  </blockquote>
-                  <br>
-                  <i class="fas fa-map-marker-alt" style="color: #045762">  <%= data.city %></i>
+        <div class="main1">
+            <div class="carousel"
+                 data-flickity='{ "wrapAround": true ,"cellSelector": ".carousel-cell" , "autoPlay" : true, "cellAlign": "left", "contain": true }'>
+                <div class="carousel-cell">
+<!--                    <img class="d-block w-100" style="height:28rem" src="images/slider/ngo8.jpg" alt="1234">-->
+                    <img class="d-block w-100" style="height:28rem" src="images/slider/goa-01.jpg" alt="1234">
                 </div>
-              </div>
-              </div>
-              <%  i++ ;})%>
-              <%  }else{%>
-                <h3 style="font-weight: bold;text-align: center">No Data Found</h3>
-              <%  }%>
-          </div>
-
+                <div class="carousel-cell">
+                    <img class="d-block w-100" src="images/slider/goa-02.jpg" style="height:28rem" alt="">
+                </div>
+                <div class="carousel-cell">
+                    <img class="d-block w-100" style="height:28rem" src="images/slider/field-visit.jpg" alt="">
+                </div>
+                <div class="carousel-cell">
+                    <img class="d-block w-100" style="height:28rem" src="images/slider/tech-fest-1.jpg" alt="">
+                </div>
+                <div class="carousel-cell">
+                    <img class="d-block w-100" style="height:28rem" src="images/slider/training-2.jpg" alt="">
+                </div>
+                <div class="carousel-cell">
+                    <img class="d-block w-100" style="height:28rem" src="images/slider/training-1.jpg" alt="">
+                </div>
+            </div>
         </div>
 
-      </div>
+        <div class="main2">
+            <div class="Container">
+
+            <div class="about_us" style="padding: 2rem;">
+              <h1>ABOUT US</h1>
+                <p>Katalyst started a decade ago with the intent of liberating women through the pursuit of professional
+                    education. The initiative definitively prepares young women for leadership roles, thereby creating a
+                    wider talent pool for India Inc and helping bridge the gender divide. Katalyst achieves this
+                    objective through a blend of unique development interventions, including our 600 hour proprietary
+                    and scientifically researched curriculum. Over their four years in the program, we also provide
+                    one-to-one mentorship, access to best in class technology, assistance with internships, and world
+                    class industry exposure and corporate interactions. Set up in 2007 with 10 young women, Katalyst now
+                    has chapters in Mumbai, Pune, Bangalore and Delhi and has impacted the lives of over 1200 girls,
+                    with 500 currently in the program. Katalyst alumni now occupy positions of seniority in prestigious
+                    MNCs and large Indian companies, both in India and abroad, as well as the Civil and Administrative
+                    Services.</p>
+            </div>
+            </div>
+        </div>
 
     </div>
-  </div>
-
-</div>
 
 
 </div>
 
-<div class="footer" >
-  <div class="" style="padding:1rem;">
-    <a href="#">About</a>
-    <a href="#">Terms &#x26 Conditions</a>
-    <a href="#">Contact</a>
-    <a href="#">Help desk</a><br>
-    <i class="fab fa-facebook"></i>
-    <i class="fab fa-twitter"></i>
-    <i class="fab fa-linkedin"></i>
-  </div>
+<div class="footer">
+    <div class="" style="padding:1rem;">
+        <a href="#">About</a>
+        <a href="#">Terms &#x26 Conditions</a>
+        <a href="#">Contact</a>
+        <a href="#">Help desk</a><br>
+        <i class="fab fa-facebook"></i>
+        <i class="fab fa-twitter"></i>
+        <i class="fab fa-linkedin"></i>
+    </div>
 
 </div>
-<%- include('../partials/footer')%>
+<%- include('../partials/footer') %>
